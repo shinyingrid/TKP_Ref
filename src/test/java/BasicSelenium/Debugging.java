@@ -8,7 +8,8 @@ public class Debugging {
 		while(num>0) {
 			rem=num%10;
 			sum=sum+rem;
-			System.out.println(sum);
+			num=num/10;
 		}
+		System.out.println(sum);
 	}
 }
