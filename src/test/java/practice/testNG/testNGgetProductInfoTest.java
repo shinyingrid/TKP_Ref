@@ -1,0 +1,27 @@
+package practice.testNG;
+import org.openqa.selenium.*;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.Test;
+
+public class testNGgetProductInfoTest
+{
+	@Test
+	public void getProductInfo() throws Throwable
+	{
+		@SuppressWarnings("unused")
+		WebDriver driver = new EdgeDriver();
+		driver.get("http://amazon.in");
+		
+		//Search product
+		driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("iphone",Keys.ENTER);
+		
+		Thread.sleep(3000);
+		//Capture product info
+		//String x="//span[text()='Apple iPhone 13 (128GB) - Midnight']/../../../../div[3]/div[1]/div/div[1]/div[1]/div[1]/a/span/span[2]/span[text()='52,090']";
+		//String prodPrice=driver.findElement(By.xpath("//span[text()='Apple iPhone 13 (128GB) - Midnight']/../../../../div[3]/div[1]/div/div[1]/div[1]/div[1]/a/span/span[2]/span[text()='52,090']")).getText();
+		//String element=driver.findElement(By.xpath("//span[text()='Apple iPhone 15 (128 GB) - Black']/../../../following-sibling::div[2]/div/div/div/div/div/a/span")).getText();
+		String element=driver.findElement(By.xpath("(//span[text()='Apple iPhone 15 (128 GB) - Black'])[1]/../../../following-sibling::div[2]/div/div/div/div/div/a/span/span/span[2]")).getText();
+		System.out.println(element);
+		
+	}
+}
